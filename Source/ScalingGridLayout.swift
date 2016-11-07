@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
+open class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
     
-    let itemSize: CGSize
-    let columns: CGFloat
-    let itemSpacing: CGFloat
+    open let itemSize: CGSize
+    open let columns: CGFloat
+    open let itemSpacing: CGFloat
     
     private var scale: CGFloat
     private var attributes: [UICollectionViewLayoutAttributes] = []
@@ -23,11 +23,11 @@ public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public var collectionViewContentSize: CGSize {
+    override open var collectionViewContentSize: CGSize {
         return contentSize
     }
     
-    public func contentSizeForScale(_ scale: CGFloat) -> CGSize {
+    open func contentSizeForScale(_ scale: CGFloat) -> CGSize {
         let itemCount = collectionView!.numberOfItems(inSection: 0)
         let rowCount = ceil(CGFloat(itemCount)/CGFloat(columns))
         let sz = CGSize(
@@ -37,7 +37,7 @@ public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
         return sz.scale(scale)
     }
     
-    override public func prepare() {
+    override open func prepare() {
         super.prepare()
         self.contentSize = contentSizeForScale(self.scale)
         let itemCount = self.collectionView!.numberOfItems(inSection: 0)
@@ -63,15 +63,15 @@ public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
         attributes = attrs.flatMap { $0 }
     }
     
-    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return attributes.filter { $0.frame.intersects(rect) }
     }
     
-    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return attributes.first { $0.indexPath == indexPath }
     }
     
-    public func setScale(_ scale: CGFloat) {
+    open func setScale(_ scale: CGFloat) {
         self.scale = scale
     }
     

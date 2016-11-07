@@ -1,12 +1,12 @@
 import Foundation
 import UIKit
 
-public class ZoomCollectionView : UIView, UIScrollViewDelegate {
+open class ZoomCollectionView : UIView, UIScrollViewDelegate {
     
-    let collectionView: UICollectionView
-    let scrollView: UIScrollView
-    let dummyZoomView: UIView
-    let layout: UICollectionViewLayout
+    open let collectionView: UICollectionView
+    open let scrollView: UIScrollView
+    open let dummyZoomView: UIView
+    open let layout: UICollectionViewLayout
     
     public init(frame: CGRect, layout: UICollectionViewLayout) {
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
@@ -38,7 +38,7 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         if let layout = self.layout as? ScalingLayoutProtocol {
@@ -48,15 +48,15 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
         }
     }
     
-    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    open func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return dummyZoomView
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.contentOffset = scrollView.contentOffset
     }
     
-    public func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    open func scrollViewDidZoom(_ scrollView: UIScrollView) {
         if let layout = self.layout as? ScalingLayoutProtocol {
             layout.setScale(scrollView.zoomScale)
         }
