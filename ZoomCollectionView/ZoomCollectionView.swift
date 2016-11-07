@@ -6,13 +6,10 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
     let collectionView: UICollectionView
     let scrollView: UIScrollView
     let dummyZoomView: UIView
-    let layout: ScalingLayoutProtocol
+    let layout: UICollectionViewLayout
     
-    init(frame: CGRect, layout: ScalingLayoutProtocol) {
-        collectionView = UICollectionView(
-            frame: frame,
-            collectionViewLayout: layout as! UICollectionViewLayout
-        )
+    init(frame: CGRect, layout: UICollectionViewLayout) {
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         scrollView = UIScrollView(frame: frame)
         dummyZoomView = UIView(frame: .zero)
         
@@ -44,9 +41,11 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        let size = layout.contentSizeForScale(scrollView.zoomScale)
-        scrollView.contentSize = size
-        dummyZoomView.frame = CGRect(origin: .zero, size: size)
+        if let layout = self.layout as? ScalingLayoutProtocol {
+            let size = layout.contentSizeForScale(scrollView.zoomScale)
+            scrollView.contentSize = size
+            dummyZoomView.frame = CGRect(origin: .zero, size: size)
+        }
     }
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -58,7 +57,10 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
     }
     
     public func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        layout.setScale(scrollView.zoomScale)
+        if let layout = self.layout as? ScalingLayoutProtocol {
+            layout.setScale(scrollView.zoomScale)
+        }
+        
         layout.invalidateLayout()
         collectionView.contentOffset = scrollView.contentOffset
         collectionView.reloadData()
