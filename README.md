@@ -7,4 +7,7 @@ we know and love from UIScrollView.
 ## Result
 <img src="./scale-default.png" width="320" alt="Default" />
 &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 <img src="./scale-zoomed.png" width="320" alt="Zoomed" />
