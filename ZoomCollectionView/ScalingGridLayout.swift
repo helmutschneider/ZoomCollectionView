@@ -1,17 +1,17 @@
 import Foundation
 import UIKit
 
-public class ZoomGridLayout : UICollectionViewLayout {
+public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
     
     let itemSize: CGSize
     let columns: CGFloat
     let itemSpacing: CGFloat
-    var scale: CGFloat
     
+    private var scale: CGFloat
     private var attributes: [UICollectionViewLayoutAttributes] = []
     private var contentSize: CGSize = .zero
     
-    init(itemSize: CGSize, columns: CGFloat, itemSpacing: CGFloat, scale: CGFloat = 1.0) {
+    init(itemSize: CGSize, columns: CGFloat, itemSpacing: CGFloat, scale: CGFloat) {
         self.itemSize = itemSize
         self.columns = columns
         self.itemSpacing = itemSpacing
@@ -27,7 +27,7 @@ public class ZoomGridLayout : UICollectionViewLayout {
         return contentSize
     }
     
-    func contentSizeForZoomScale(scale: CGFloat) -> CGSize {
+    public func contentSizeForScale(_ scale: CGFloat) -> CGSize {
         let itemCount = collectionView!.numberOfItems(inSection: 0)
         let rowCount = ceil(CGFloat(itemCount)/CGFloat(columns))
         let sz = CGSize(
@@ -37,18 +37,9 @@ public class ZoomGridLayout : UICollectionViewLayout {
         return sz.scale(scale)
     }
     
-    func contentOffsetDeltaForCenter(center: CGPoint, fromScale: CGFloat, toScale: CGFloat) -> CGPoint {
-        let defaultSize = contentSizeForZoomScale(scale: fromScale)
-        let contentSize = contentSizeForZoomScale(scale: toScale)
-        let xd = contentSize.width - defaultSize.width
-        let yd = contentSize.height - defaultSize.height
-        let offset = CGPoint(x: xd * center.x, y: yd * center.y)
-        return offset
-    }
-    
     override public func prepare() {
         super.prepare()
-        self.contentSize = contentSizeForZoomScale(scale: self.scale)
+        self.contentSize = contentSizeForScale(self.scale)
         let itemCount = self.collectionView!.numberOfItems(inSection: 0)
         let chunks = [Int]((0..<itemCount)).chunks(size: Int(self.columns))
         let rowIndices = chunks.indices
@@ -78,6 +69,10 @@ public class ZoomGridLayout : UICollectionViewLayout {
     
     override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return attributes.first { $0.indexPath == indexPath }
+    }
+    
+    public func setScale(_ scale: CGFloat) {
+        self.scale = scale
     }
     
 }

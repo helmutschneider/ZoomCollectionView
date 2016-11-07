@@ -2,29 +2,34 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
     
-    var collectionView: ZoomCollectionView?
+    static let cellId = "CellId"
+    
+    var zoomView: ZoomCollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let itemWidth = (self.view.frame.width - 40.0)/5.0
-        
-        let layout = ZoomGridLayout(
+        let itemWidth = (self.view.frame.width - 20.0)/5.0
+        let layout = ScalingGridLayout(
             itemSize: CGSize(width: itemWidth, height: itemWidth),
             columns: 5,
-            itemSpacing: 10.0,
+            itemSpacing: 5.0,
             scale: 1.0
         )
         
-        collectionView = ZoomCollectionView(
+        zoomView = ZoomCollectionView(
             frame: CGRect(origin: .zero, size: self.view.frame.size),
             layout: layout
         )
-        collectionView!.dataSource = self
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CellId")
-        collectionView!.backgroundColor = .white
+        zoomView!.collectionView.dataSource = self
+        zoomView!.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ViewController.cellId)
+        zoomView!.collectionView.backgroundColor = .white
         
-        view.addSubview(collectionView!)
+        zoomView!.scrollView.minimumZoomScale = 1.0
+        zoomView!.scrollView.zoomScale = 1.0
+        zoomView!.scrollView.maximumZoomScale = 4.0
+        
+        view.addSubview(zoomView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +46,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellId", for: indexPath)
-        cell.backgroundColor = indexPath.row % 2 == 0 ? .blue : .yellow
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ViewController.cellId, for: indexPath)
+        cell.backgroundColor = indexPath.row % 2 == 0 ? .orange : .blue
         
         return cell
     }

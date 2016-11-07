@@ -1,32 +1,6 @@
 import Foundation
 import CoreGraphics
 
-public extension CGPoint {
-    func distance(_ other: CGPoint) -> CGFloat {
-        let xd = self.x - other.x
-        let yd = self.y - other.y
-        return sqrt(pow(xd, 2) + pow(yd, 2))
-    }
-    func add(_ other: CGPoint) -> CGPoint {
-        return CGPoint(
-            x: self.x + other.x,
-            y: self.y + other.y
-        )
-    }
-    func subtract(_ other: CGPoint) -> CGPoint {
-        return CGPoint(
-            x: self.x - other.x,
-            y: self.y - other.y
-        )
-    }
-    func scale(_ factor: CGFloat) -> CGPoint {
-        return CGPoint(
-            x: self.x * factor,
-            y: self.y * factor
-        )
-    }
-}
-
 public extension CGSize {
     func scale(_ factor: CGFloat) -> CGSize {
         let transform = CGAffineTransform(scaleX: factor, y: factor)

@@ -14,7 +14,8 @@
 		047CBDCD1DCFD00D0043E7B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDCB1DCFD00D0043E7B2 /* LaunchScreen.storyboard */; };
 		047CBDD51DCFD0740043E7B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD41DCFD0740043E7B2 /* Extensions.swift */; };
 		047CBDD71DCFD0C70043E7B2 /* ZoomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */; };
-		047CBDD91DCFD1400043E7B2 /* ZoomGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD81DCFD1400043E7B2 /* ZoomGridLayout.swift */; };
+		047CBDD91DCFD1400043E7B2 /* ScalingGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */; };
+		04804A871DD0F424006B4DAE /* ScalingLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		047CBDCE1DCFD00D0043E7B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		047CBDD41DCFD0740043E7B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomCollectionView.swift; sourceTree = "<group>"; };
-		047CBDD81DCFD1400043E7B2 /* ZoomGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomGridLayout.swift; sourceTree = "<group>"; };
+		047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingGridLayout.swift; sourceTree = "<group>"; };
+		04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingLayoutProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 				047CBDCB1DCFD00D0043E7B2 /* LaunchScreen.storyboard */,
 				047CBDCE1DCFD00D0043E7B2 /* Info.plist */,
 				047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */,
-				047CBDD81DCFD1400043E7B2 /* ZoomGridLayout.swift */,
+				047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */,
+				04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */,
 			);
 			path = ZoomCollectionView;
 			sourceTree = "<group>";
@@ -105,7 +108,6 @@
 				TargetAttributes = {
 					047CBDBE1DCFD00D0043E7B2 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 89UYCCUVZK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -146,11 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047CBDD91DCFD1400043E7B2 /* ZoomGridLayout.swift in Sources */,
+				047CBDD91DCFD1400043E7B2 /* ScalingGridLayout.swift in Sources */,
 				047CBDC51DCFD00D0043E7B2 /* ViewController.swift in Sources */,
 				047CBDD51DCFD0740043E7B2 /* Extensions.swift in Sources */,
 				047CBDC31DCFD00D0043E7B2 /* AppDelegate.swift in Sources */,
 				047CBDD71DCFD0C70043E7B2 /* ZoomCollectionView.swift in Sources */,
+				04804A871DD0F424006B4DAE /* ScalingLayoutProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 89UYCCUVZK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZoomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = helmut.ZoomCollectionView;
@@ -284,7 +287,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 89UYCCUVZK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZoomCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = helmut.ZoomCollectionView;
