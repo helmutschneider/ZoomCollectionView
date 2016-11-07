@@ -5,5 +5,5 @@ using custom a UICollectionViewLayout which resizes itself to simulate the effec
 we know and love from UIScrollView.
 
 ## Result
-![Default](./scale-default.png)
-![Zoomed](./scale-zoomed.png)
+![Default](./scale-default.png =320x568)
+![Zoomed](./scale-zoomed.png =320x568)
