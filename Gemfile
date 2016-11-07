@@ -3,4 +3,4 @@ source "https://rubygems.org"
 
 # gem "rails"
 
-gem "cocoapods"
+gem "cocoapods", "~> 1.0"
