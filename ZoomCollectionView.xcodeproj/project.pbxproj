@@ -12,10 +12,10 @@
 		047CBDC81DCFD00D0043E7B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDC61DCFD00D0043E7B2 /* Main.storyboard */; };
 		047CBDCA1DCFD00D0043E7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDC91DCFD00D0043E7B2 /* Assets.xcassets */; };
 		047CBDCD1DCFD00D0043E7B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDCB1DCFD00D0043E7B2 /* LaunchScreen.storyboard */; };
-		047CBDD51DCFD0740043E7B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD41DCFD0740043E7B2 /* Extensions.swift */; };
-		047CBDD71DCFD0C70043E7B2 /* ZoomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */; };
-		047CBDD91DCFD1400043E7B2 /* ScalingGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */; };
-		04804A871DD0F424006B4DAE /* ScalingLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */; };
+		04804A911DD10DC1006B4DAE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8D1DD10DC1006B4DAE /* Extensions.swift */; };
+		04804A921DD10DC1006B4DAE /* ScalingGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */; };
+		04804A931DD10DC1006B4DAE /* ScalingLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */; };
+		04804A941DD10DC1006B4DAE /* ZoomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +26,12 @@
 		047CBDC91DCFD00D0043E7B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047CBDCC1DCFD00D0043E7B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047CBDCE1DCFD00D0043E7B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		047CBDD41DCFD0740043E7B2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomCollectionView.swift; sourceTree = "<group>"; };
-		047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingGridLayout.swift; sourceTree = "<group>"; };
-		04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingLayoutProtocol.swift; sourceTree = "<group>"; };
 		04804A881DD101DE006B4DAE /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		04804A891DD101DE006B4DAE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04804A8D1DD10DC1006B4DAE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingGridLayout.swift; sourceTree = "<group>"; };
+		04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingLayoutProtocol.swift; sourceTree = "<group>"; };
+		04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +50,7 @@
 			children = (
 				04804A881DD101DE006B4DAE /* LICENSE.md */,
 				04804A891DD101DE006B4DAE /* README.md */,
+				04804A8C1DD10DC1006B4DAE /* Source */,
 				047CBDC11DCFD00D0043E7B2 /* ZoomCollectionView */,
 				047CBDC01DCFD00D0043E7B2 /* Products */,
 			);
@@ -67,17 +68,24 @@
 			isa = PBXGroup;
 			children = (
 				047CBDC21DCFD00D0043E7B2 /* AppDelegate.swift */,
-				047CBDD41DCFD0740043E7B2 /* Extensions.swift */,
 				047CBDC41DCFD00D0043E7B2 /* ViewController.swift */,
 				047CBDC61DCFD00D0043E7B2 /* Main.storyboard */,
 				047CBDC91DCFD00D0043E7B2 /* Assets.xcassets */,
 				047CBDCB1DCFD00D0043E7B2 /* LaunchScreen.storyboard */,
 				047CBDCE1DCFD00D0043E7B2 /* Info.plist */,
-				047CBDD61DCFD0C70043E7B2 /* ZoomCollectionView.swift */,
-				047CBDD81DCFD1400043E7B2 /* ScalingGridLayout.swift */,
-				04804A861DD0F424006B4DAE /* ScalingLayoutProtocol.swift */,
 			);
 			path = ZoomCollectionView;
+			sourceTree = "<group>";
+		};
+		04804A8C1DD10DC1006B4DAE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				04804A8D1DD10DC1006B4DAE /* Extensions.swift */,
+				04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */,
+				04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */,
+				04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,12 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047CBDD91DCFD1400043E7B2 /* ScalingGridLayout.swift in Sources */,
 				047CBDC51DCFD00D0043E7B2 /* ViewController.swift in Sources */,
-				047CBDD51DCFD0740043E7B2 /* Extensions.swift in Sources */,
+				04804A941DD10DC1006B4DAE /* ZoomCollectionView.swift in Sources */,
+				04804A911DD10DC1006B4DAE /* Extensions.swift in Sources */,
 				047CBDC31DCFD00D0043E7B2 /* AppDelegate.swift in Sources */,
-				047CBDD71DCFD0C70043E7B2 /* ZoomCollectionView.swift in Sources */,
-				04804A871DD0F424006B4DAE /* ScalingLayoutProtocol.swift in Sources */,
+				04804A931DD10DC1006B4DAE /* ScalingLayoutProtocol.swift in Sources */,
+				04804A921DD10DC1006B4DAE /* ScalingGridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
