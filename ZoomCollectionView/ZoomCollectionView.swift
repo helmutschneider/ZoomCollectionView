@@ -55,11 +55,13 @@ public class ZoomCollectionView : UICollectionView, UIGestureRecognizerDelegate 
                 let linearX = (maxScale - pinchScaleStart) / k
                 let easeX = pinchDelta - linearX
                 scale = maxScale + easeOut(x: easeX, k0: k, easeTarget: 1.0)
-                print("scale", scale)
-                print("PINCH DELTA", pinchDelta)
-                print("LINEAR", linearX)
-                print("EASE", easeX)
-                print("k", k)
+            }
+            else if scale < minScale {
+                let pinchDelta = pinchDistance - pinchDistanceStart
+                let k = (scale - pinchScaleStart) / (pinchDelta)
+                let linearX = (minScale - pinchScaleStart) / k
+                let easeX = pinchDelta - linearX
+                scale = minScale - easeOut(x: abs(easeX), k0: k, easeTarget: 0.2)
             }
             
             
