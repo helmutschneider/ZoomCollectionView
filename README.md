@@ -14,9 +14,9 @@ we know and love from `UIScrollView`.
 
 ## How does it work?
 `ZoomCollectionView` is a container view that encapsulates three views:
-    - A `UICollectionView` for the actual collection data
-    - A `UIScrollView` for the zoom/scroll hooks
-    - A dummy `UIView` that the scroll view uses for its zooming capabilities
+- A `UICollectionView` for the actual collection data
+- A `UIScrollView` for the zoom/scroll hooks
+- A dummy `UIView` that the scroll view uses for its zooming capabilities
 
 When the scroll view is zoomed or scrolled it forwards the content offset to
 the collection view and the scale factor to the `UICollectionViewLayout` which
@@ -33,9 +33,8 @@ How the layout recalculates its attributes is implementation specific but an exa
 can be found in `ScalingGridLayout`.
 
 ## What works
-    - Scrolling
-    - Zooming
+- Scrolling
+- Zooming
 
 ## What does not work
-    - The bounce effect when `minimumZoomScale` or `maximumZoomScale` is reached. The reason for this is
-that the bounce effect does not trigger `scrollViewDidZoom` in the scroll view.
+- The bounce effect when `minimumZoomScale` or `maximumZoomScale` is reached. The reason for this is that the bounce effect does not trigger `scrollViewDidZoom` in the scroll view.
