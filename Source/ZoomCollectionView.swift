@@ -8,7 +8,7 @@ public class ZoomCollectionView : UIView, UIScrollViewDelegate {
     let dummyZoomView: UIView
     let layout: UICollectionViewLayout
     
-    init(frame: CGRect, layout: UICollectionViewLayout) {
+    public init(frame: CGRect, layout: UICollectionViewLayout) {
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         scrollView = UIScrollView(frame: frame)
         dummyZoomView = UIView(frame: .zero)

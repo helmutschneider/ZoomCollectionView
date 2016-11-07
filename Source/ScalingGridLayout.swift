@@ -11,7 +11,7 @@ public class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
     private var attributes: [UICollectionViewLayoutAttributes] = []
     private var contentSize: CGSize = .zero
     
-    init(itemSize: CGSize, columns: CGFloat, itemSpacing: CGFloat, scale: CGFloat) {
+    public init(itemSize: CGSize, columns: CGFloat, itemSpacing: CGFloat, scale: CGFloat) {
         self.itemSize = itemSize
         self.columns = columns
         self.itemSpacing = itemSpacing
