@@ -75,4 +75,8 @@ open class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
         self.scale = scale
     }
     
+    open func getScale() -> CGFloat {
+        return self.scale
+    }
+    
 }

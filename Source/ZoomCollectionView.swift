@@ -57,13 +57,12 @@ open class ZoomCollectionView : UIView, UIScrollViewDelegate {
     }
     
     open func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        if let layout = self.layout as? ScalingLayoutProtocol {
+        if let layout = self.layout as? ScalingLayoutProtocol, layout.getScale() != scrollView.zoomScale {
             layout.setScale(scrollView.zoomScale)
+            self.layout.invalidateLayout()
+            collectionView.contentOffset = scrollView.contentOffset
+            collectionView.reloadData()
         }
-        
-        layout.invalidateLayout()
-        collectionView.contentOffset = scrollView.contentOffset
-        collectionView.reloadData()
     }
     
 }
