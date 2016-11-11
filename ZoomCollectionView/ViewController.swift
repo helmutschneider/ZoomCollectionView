@@ -9,13 +9,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layout = ScalingFlowLayout(initialScale: 1.0)
+        layout.scrollDirection = .vertical
+        
         let itemWidth = (self.view.frame.width - 20.0)/5.0
-        let layout = ScalingGridLayout(
-            itemSize: CGSize(width: itemWidth, height: itemWidth),
-            columns: 5,
-            itemSpacing: 5.0,
-            scale: 1.0
-        )
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        layout.minimumInteritemSpacing = 5.0
+        layout.minimumLineSpacing = 5.0
         
         zoomView = ZoomCollectionView(
             frame: CGRect(origin: .zero, size: self.view.frame.size),

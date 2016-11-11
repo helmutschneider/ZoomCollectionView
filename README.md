@@ -33,12 +33,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         let itemWidth = (self.view.frame.width - 20.0)/5.0
 
         // you can also implement your own scaling layout
-        let layout = ScalingGridLayout(
-            itemSize: CGSize(width: itemWidth, height: itemWidth),
-            columns: 5,
-            itemSpacing: 5.0,
-            scale: 1.0
-        )
+        let layout = ScalingFlowLayout(initialScale: 1.0)
+        layout.scrollDirection = .vertical
+
+        let itemWidth = (self.view.frame.width - 20.0)/5.0
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        layout.minimumInteritemSpacing = 5.0
+        layout.minimumLineSpacing = 5.0
 
         zoomView = ZoomCollectionView(
             frame: CGRect(origin: .zero, size: self.view.frame.size),
@@ -80,7 +81,7 @@ public protocol ScalingLayoutProtocol {
 ```
 
 How the layout recalculates its attributes is implementation specific but an example
-can be found in `ScalingGridLayout`.
+can be found in [ScalingFlowLayout.swift](Source/ScalingFlowLayout.swift).
 
 ## What works
 - Scrolling
