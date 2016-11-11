@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-open class ZoomCollectionView : UIView, UIScrollViewDelegate {
+open class ZoomCollectionView : UIView, UIScrollViewDelegate, UICollectionViewDelegate {
     
     open let collectionView: UICollectionView
     open let scrollView: UIScrollView
@@ -22,6 +22,7 @@ open class ZoomCollectionView : UIView, UIScrollViewDelegate {
         collectionView.gestureRecognizers?.forEach { collectionView.removeGestureRecognizer($0) }
         
         scrollView.delegate = self
+        collectionView.delegate = self
         
         addSubview(collectionView)
         addSubview(scrollView)
@@ -54,6 +55,7 @@ open class ZoomCollectionView : UIView, UIScrollViewDelegate {
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.contentOffset = scrollView.contentOffset
+        collectionView.hideLingeringCells()
     }
     
     open func scrollViewDidZoom(_ scrollView: UIScrollView) {
@@ -61,8 +63,13 @@ open class ZoomCollectionView : UIView, UIScrollViewDelegate {
             layout.setScale(scrollView.zoomScale)
             self.layout.invalidateLayout()
             collectionView.contentOffset = scrollView.contentOffset
-            collectionView.reloadData()
+            collectionView.hideLingeringCells()
         }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // cells might have been hidden by hideLingeringCells() so we must un-hide them.
+        cell.isHidden = false
     }
     
 }

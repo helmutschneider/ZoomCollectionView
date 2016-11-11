@@ -1,5 +1,5 @@
 import Foundation
-import CoreGraphics
+import UIKit
 
 public extension CGSize {
     func scale(_ factor: CGFloat) -> CGSize {
@@ -24,5 +24,22 @@ public extension Array {
             let chunk = self[start...end]
             return [Element](chunk)
         }
+    }
+}
+
+public extension UICollectionView {
+    
+    // credit to http://stackoverflow.com/questions/17704527/uicollectionview-not-removing-old-cells-after-scroll
+    func getLingeringCells() -> [UICollectionViewCell] {
+        let visibleRect = CGRect(origin: contentOffset, size: bounds.size)
+        
+        return subviews
+            .filter { ($0 as? UICollectionViewCell) != nil }
+            .map { $0 as! UICollectionViewCell }
+            .filter { visibleRect.intersects($0.frame) && !visibleCells.contains($0) }
+    }
+    
+    func hideLingeringCells() {
+        getLingeringCells().forEach { $0.isHidden = true }
     }
 }
