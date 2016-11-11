@@ -1,28 +1,20 @@
-//
-//  ScalingFlowLayout.swift
-//  ZoomCollectionView
-//
-//  Created by Johan Björk on 2016-11-11.
-//  Copyright © 2016 Johan Björk. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
-class ScalingFlowLayout : UICollectionViewFlowLayout, ScalingLayoutProtocol {
+open class ScalingFlowLayout : UICollectionViewFlowLayout, ScalingLayoutProtocol {
     
     private var scale: CGFloat
     
-    override var collectionViewContentSize: CGSize {
+    override open var collectionViewContentSize: CGSize {
         return super.collectionViewContentSize.scale(scale)
     }
     
-    init(initialScale: CGFloat) {
+    public init(initialScale: CGFloat) {
         self.scale = initialScale
         super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
