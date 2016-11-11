@@ -32,6 +32,8 @@
 		04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingGridLayout.swift; sourceTree = "<group>"; };
 		04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingLayoutProtocol.swift; sourceTree = "<group>"; };
 		04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomCollectionView.swift; sourceTree = "<group>"; };
+		04ED62B31DD60A7600C964B2 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		04ED62B41DD60A7600C964B2 /* ZoomCollectionView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZoomCollectionView.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,8 @@
 		047CBDB61DCFD00D0043E7B2 = {
 			isa = PBXGroup;
 			children = (
+				04ED62B31DD60A7600C964B2 /* Gemfile */,
+				04ED62B41DD60A7600C964B2 /* ZoomCollectionView.podspec */,
 				04804A881DD101DE006B4DAE /* LICENSE.md */,
 				04804A891DD101DE006B4DAE /* README.md */,
 				04804A8C1DD10DC1006B4DAE /* Source */,

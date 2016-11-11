@@ -4,13 +4,62 @@ it is inherits from `UIScrollView`). This project is an attempt to implement zoo
 using custom a `UICollectionViewLayout` which resizes itself to simulate the effect
 we know and love from `UIScrollView`.
 
-## Result
 <img src="./scale-default.png" width="320" alt="Default" />
 &nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
 <img src="./scale-zoomed.png" width="320" alt="Zoomed" />
+
+## Usage with cocoapods
+Add a pod requirement to your podfile:
+```ruby
+target 'MyApp' do
+  ...
+  pod 'ZoomCollectionView', :git => 'https://github.com/helmutschneider/ZoomCollectionView.git'
+  ...
+end
+```
+Then instantiate the layout & view:
+```swift
+class ViewController: UIViewController, UICollectionViewDataSource {
+
+    static let cellId = "CellId"
+    var zoomView: ZoomCollectionView?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let itemWidth = (self.view.frame.width - 20.0)/5.0
+
+        // you can also implement your own scaling layout
+        let layout = ScalingGridLayout(
+            itemSize: CGSize(width: itemWidth, height: itemWidth),
+            columns: 5,
+            itemSpacing: 5.0,
+            scale: 1.0
+        )
+
+        zoomView = ZoomCollectionView(
+            frame: CGRect(origin: .zero, size: self.view.frame.size),
+            layout: layout
+        )
+        zoomView!.collectionView.dataSource = self
+        zoomView!.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ViewController.cellId)
+        zoomView!.collectionView.backgroundColor = .white
+
+        zoomView!.scrollView.minimumZoomScale = 1.0
+        zoomView!.scrollView.zoomScale = 1.0
+        zoomView!.scrollView.maximumZoomScale = 4.0
+
+        view.addSubview(zoomView!)
+    }
+
+    ...UICollectionViewDataSource methods...
+
+}
+```
+For a complete example, have a look at [ViewController.swift](ZoomCollectionView/ViewController.swift).
 
 ## How does it work?
 `ZoomCollectionView` is a container view that encapsulates three views:
