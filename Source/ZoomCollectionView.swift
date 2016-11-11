@@ -67,7 +67,7 @@ open class ZoomCollectionView : UIView, UIScrollViewDelegate, UICollectionViewDe
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // cells might have been hidden by hideLingeringCells() so we must un-hide them.
         cell.isHidden = false
     }
