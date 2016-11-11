@@ -35,14 +35,11 @@ class ScalingFlowLayout : UICollectionViewFlowLayout, ScalingLayoutProtocol {
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let downscaledRect = rect.scale(1/scale)
         let downscaledAttributes = super.layoutAttributesForElements(in: downscaledRect)
-        return downscaledAttributes?.map { scaleLayoutAttribute($0) }
+        return downscaledAttributes?.map(scaleLayoutAttribute)
     }
     
     override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        if let attr = super.layoutAttributesForItem(at: indexPath) {
-            return scaleLayoutAttribute(attr)
-        }
-        return nil
+        return super.layoutAttributesForItem(at: indexPath).map(scaleLayoutAttribute)
     }
     
     open func getScale() -> CGFloat {
