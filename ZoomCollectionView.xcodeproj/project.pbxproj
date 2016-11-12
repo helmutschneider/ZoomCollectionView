@@ -13,9 +13,9 @@
 		047CBDCA1DCFD00D0043E7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDC91DCFD00D0043E7B2 /* Assets.xcassets */; };
 		047CBDCD1DCFD00D0043E7B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CBDCB1DCFD00D0043E7B2 /* LaunchScreen.storyboard */; };
 		04804A911DD10DC1006B4DAE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8D1DD10DC1006B4DAE /* Extensions.swift */; };
+		04804A921DD10DC1006B4DAE /* ScalingGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */; };
 		04804A931DD10DC1006B4DAE /* ScalingLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */; };
 		04804A941DD10DC1006B4DAE /* ZoomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */; };
-		04ED62B81DD60FA800C964B2 /* ScalingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED62B71DD60FA800C964B2 /* ScalingFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +29,11 @@
 		04804A881DD101DE006B4DAE /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		04804A891DD101DE006B4DAE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		04804A8D1DD10DC1006B4DAE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingGridLayout.swift; sourceTree = "<group>"; };
 		04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingLayoutProtocol.swift; sourceTree = "<group>"; };
 		04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomCollectionView.swift; sourceTree = "<group>"; };
 		04ED62B31DD60A7600C964B2 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		04ED62B41DD60A7600C964B2 /* ZoomCollectionView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZoomCollectionView.podspec; sourceTree = "<group>"; };
-		04ED62B71DD60FA800C964B2 /* ScalingFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				04804A8D1DD10DC1006B4DAE /* Extensions.swift */,
+				04804A8E1DD10DC1006B4DAE /* ScalingGridLayout.swift */,
 				04804A8F1DD10DC1006B4DAE /* ScalingLayoutProtocol.swift */,
 				04804A901DD10DC1006B4DAE /* ZoomCollectionView.swift */,
-				04ED62B71DD60FA800C964B2 /* ScalingFlowLayout.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -167,9 +167,9 @@
 				047CBDC51DCFD00D0043E7B2 /* ViewController.swift in Sources */,
 				04804A941DD10DC1006B4DAE /* ZoomCollectionView.swift in Sources */,
 				04804A911DD10DC1006B4DAE /* Extensions.swift in Sources */,
-				04ED62B81DD60FA800C964B2 /* ScalingFlowLayout.swift in Sources */,
 				047CBDC31DCFD00D0043E7B2 /* AppDelegate.swift in Sources */,
 				04804A931DD10DC1006B4DAE /* ScalingLayoutProtocol.swift in Sources */,
+				04804A921DD10DC1006B4DAE /* ScalingGridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
