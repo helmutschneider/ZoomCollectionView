@@ -41,26 +41,20 @@ open class ScalingGridLayout : UICollectionViewLayout, ScalingLayoutProtocol {
         super.prepare()
         self.contentSize = contentSizeForScale(self.scale)
         let itemCount = self.collectionView!.numberOfItems(inSection: 0)
-        let chunks = [Int]((0..<itemCount)).chunks(size: Int(self.columns))
-        let rowIndices = chunks.indices
-        let attrs: [[UICollectionViewLayoutAttributes]] = rowIndices.map { rowIdx in
-            let chunk = chunks[rowIdx]
-            let columnIndices = chunk.indices
-            let rowAttributes: [UICollectionViewLayoutAttributes] = columnIndices.map { columnIdx in
-                let pt = CGPoint(
-                    x: (itemSize.width + itemSpacing) * CGFloat(columnIdx),
-                    y: (itemSize.height + itemSpacing) * CGFloat(rowIdx)
-                )
-                let rect = CGRect(origin: pt, size: self.itemSize)
-                let num = chunk[columnIdx]
-                let attr = UICollectionViewLayoutAttributes(forCellWith: IndexPath(row: num, section: 0))
-                attr.frame = rect.scale(self.scale)
-                return attr
-            }
-            return rowAttributes
-        }
+        let columnCount = self.columns
         
-        attributes = attrs.flatMap { $0 }
+        attributes = (0..<itemCount).map { idx in
+            let rowIdx = floor(Double(idx) / Double(columnCount))
+            let columnIdx =  idx % Int(columnCount)
+            let pt = CGPoint(
+                x: (itemSize.width + itemSpacing) * CGFloat(columnIdx),
+                y: (itemSize.height + itemSpacing) * CGFloat(rowIdx)
+            )
+            let rect = CGRect(origin: pt, size: self.itemSize)
+            let attr = UICollectionViewLayoutAttributes(forCellWith: IndexPath(row: idx, section: 0))
+            attr.frame = rect.scale(self.scale)
+            return attr
+        }
     }
     
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

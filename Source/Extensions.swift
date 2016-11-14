@@ -15,28 +15,18 @@ public extension CGRect {
     }
 }
 
-public extension Array {
-    func chunks(size: Int) -> [[Element]] {
-        let chunkCount = Int(ceil(Double(self.count)/Double(size)))
-        return (0..<chunkCount).map { num in
-            let start = num * size
-            let end = Swift.min((num+1) * size, self.count - 1)
-            let chunk = self[start...end]
-            return [Element](chunk)
-        }
-    }
-}
-
 public extension UICollectionView {
     
     // credit to http://stackoverflow.com/questions/17704527/uicollectionview-not-removing-old-cells-after-scroll
     func getLingeringCells() -> [UICollectionViewCell] {
         let visibleRect = CGRect(origin: contentOffset, size: bounds.size)
+        let visibleCells: [UIView] = self.visibleCells
         
-        return subviews
-            .filter { ($0 as? UICollectionViewCell) != nil }
-            .map { $0 as! UICollectionViewCell }
-            .filter { visibleRect.intersects($0.frame) && !visibleCells.contains($0) }
+        return subviews.filter { view in
+            view as? UICollectionViewCell != nil &&
+            visibleRect.intersects(view.frame) &&
+            !visibleCells.contains(view)
+        } as! [UICollectionViewCell]
     }
     
     func hideLingeringCells() {
