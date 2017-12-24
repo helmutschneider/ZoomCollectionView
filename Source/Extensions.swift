@@ -23,7 +23,7 @@ public extension UICollectionView {
         let visibleCells: [UIView] = self.visibleCells
         
         return subviews.filter { view in
-            view as? UICollectionViewCell != nil &&
+            view is UICollectionViewCell &&
             visibleRect.intersects(view.frame) &&
             !visibleCells.contains(view)
         } as! [UICollectionViewCell]
