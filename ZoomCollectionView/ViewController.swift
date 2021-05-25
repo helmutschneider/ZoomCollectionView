@@ -9,6 +9,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(scrollViewWasTapped(sender:)))
+           tap.numberOfTapsRequired = 1
+        
         let itemWidth = (self.view.frame.width - 20.0)/5.0
         let layout = ScalingGridLayout(
             itemSize: CGSize(width: itemWidth, height: itemWidth),
@@ -28,6 +31,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         zoomView!.scrollView.minimumZoomScale = 1.0
         zoomView!.scrollView.zoomScale = 1.0
         zoomView!.scrollView.maximumZoomScale = 4.0
+        zoomView!.scrollView.addGestureRecognizer(tap)
         
         view.addSubview(zoomView!)
     }
@@ -52,5 +56,11 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
 
+    @objc func scrollViewWasTapped(sender:UITapGestureRecognizer) {
+        let point = sender.location(in: zoomView!.collectionView)
+        let path = zoomView!.collectionView.indexPathForItem(at: point)
+        print(path ?? IndexPath(row: 0, section: 0))
+       
+    }
 }
 
